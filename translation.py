@@ -2,7 +2,7 @@ import pyperclip
 import time
 import webbrowser
 import nltk
-#nltk.download()
+#nltk.download()    #首次运行需要开启 弹出对话框选择 package --> words --> download
 #from nltk.corpus import wordnet
 from nltk.corpus import words as words_range
 
@@ -22,7 +22,7 @@ while True:
             lastword=words[-1].lower()
 
             #if not wordnet.synsets(lastword):    #'a' 'the' 'that' return []，不准确！
-            if (lastword in words_range.words() or lastword.rstrip('s') in words_range.words() or lastword.rstrip('es') in words_range.words()):  #复数形式不在其中...
+            if (lastword in words_range.words() or lastword.rstrip('s') in words_range.words() or lastword.rstrip('es') in words_range.words()):  #单词复数形式不在words中...
                 # strBuff.replace('\r\n', ' ',1)    #死循环
                 strBuff =  strBuff.replace('\r\n', ' ',1)    #正常换行
             else :
@@ -36,7 +36,7 @@ while True:
         strBuff =  strBuff.replace('#', '%23')
         strBuff =  strBuff.replace('&', '%26')
         url='https://translate.google.com/?hl=zh-CN&tab=wT#en/zh-CN/'+ strBuff
-        chrome_path=r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"    #r代表不转义，否则\替换为\\
+        chrome_path=r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"    #r代表不转义，否则\替换为\\ 此处更改为自己本地的chrome的安装路径
         webbrowser.register('chrome', None,webbrowser.BackgroundBrowser(chrome_path))
         webbrowser.get('chrome').open(url)
 
