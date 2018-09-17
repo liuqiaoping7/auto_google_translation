@@ -30,7 +30,7 @@ while True:
                 # strBuff.replace('\r\n', '',1)    #死循环
                 strBuff =  strBuff.replace('\r\n', '',1)    #断词换行
         strBuff =  strBuff.replace('%', '%25')    #url转义 %一定要在最前面
-        strBuff =  strBuff.replace('+ ', ' %2B')
+        strBuff =  strBuff.replace('+', '%2B')
         strBuff =  strBuff.replace('/', '%2F')
         strBuff =  strBuff.replace('?', '%3F')
         strBuff =  strBuff.replace('#', '%23')
