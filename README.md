@@ -7,5 +7,5 @@ https://liuqiaoping7.github.io/python-google-translation/ 。
 熟悉python的朋友稍看一下代码就明白，这里仅仅提几个注意点：
 1. 本工具使用python3
 2. 工具包 pip install pyperclip nltk
-3. 首次运行 需要开启 #nltk.download()
+3. 首次运行 需要开启 #nltk.download(),弹出来下载框，选择下载wordnet words就好了
 4. chrome_path 按照自己本地系统更改
