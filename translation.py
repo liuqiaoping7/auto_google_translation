@@ -22,7 +22,9 @@ while True:
             lastword=words[-1].lower()
 
             #if not wordnet.synsets(lastword):    #'a' 'the' 'that' return []，不准确！
-            if (lastword in words_range.words() or lastword.rstrip('s') in words_range.words() or lastword.rstrip('es') in words_range.words()):  #单词复数形式不在words中...
+                        #if not wordnet.synsets(lastword):    #'a' 'the' 'that' return []，不准确！
+            if (lastword in words_range.words() or lastword.rstrip('s') in words_range.words() or lastword.rstrip('es') in words_range.words()
+             or lastword.rstrip('ed') in words_range.words() or lastword.rstrip('ing') in words_range.words()):  #单词不在words中...
                 # strBuff.replace('\r\n', ' ',1)    #死循环
                 strBuff =  strBuff.replace('\r\n', ' ',1)    #正常换行
             else :
