@@ -37,8 +37,8 @@ while True:
         strBuff =  strBuff.replace('?', '%3F')
         strBuff =  strBuff.replace('#', '%23')
         strBuff =  strBuff.replace('&', '%26')
-        url='https://translate.google.com/?hl=zh-CN&tab=wT#en/zh-CN/'+ strBuff
-        chrome_path=r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"    #r代表不转义，否则\替换为\\ 此处更改为自己本地的chrome的安装路径
+        url='https://translate.google.co.jp/?hl=zh-CN&tab=wT&sl=auto&tl=zh-CN&text=' + strBuff + '&op=translate'
+        chrome_path=r"C:\Program Files\Google\Chrome\Application\chrome.exe"    #r代表不转义，否则\替换为\\ 此处更改为自己本地的chrome的安装路径
         webbrowser.register('chrome', None,webbrowser.BackgroundBrowser(chrome_path))
         webbrowser.get('chrome').open(url)
 
