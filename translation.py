@@ -1,11 +1,13 @@
 import pyperclip
 import time
 import webbrowser
-import nltk
-#nltk.download()    #首次运行需要开启 弹出对话框选择 package --> words --> download
-#from nltk.corpus import wordnet
-from nltk.corpus import words as words_range
+# import nltk
+# #nltk.download()    #首次运行需要开启 弹出对话框选择 package --> words --> download
+# #from nltk.corpus import wordnet
+# from nltk.corpus import words as words_range
+import enchant
 
+d = enchant.Dict("en_US")
 tempBuff=''    #仅仅用于暂存判定
 while True:
     time.sleep(3)
@@ -21,11 +23,9 @@ while True:
             words=line.rsplit(' ',1)
             lastword=words[-1].lower()
 
-            #if not wordnet.synsets(lastword):    #'a' 'the' 'that' return []，不准确！
-                        #if not wordnet.synsets(lastword):    #'a' 'the' 'that' return []，不准确！
-            if (lastword in words_range.words() or lastword.rstrip('s') in words_range.words() or lastword.rstrip('es') in words_range.words()
-             or lastword.rstrip('ed') in words_range.words() or lastword.rstrip('ing') in words_range.words()):  #单词不在words中...
-                # strBuff.replace('\r\n', ' ',1)    #死循环
+            # if wordnet.synsets(lastword):    #'a' 'the' 'that' return []不准确！
+            # if (lastword in words_range.words() or lastword.rstrip('s') in words_range.words() or lastword.rstrip('es') in words_range.words() or lastword.rstrip('ed') in words_range.words() or lastword.rstrip('ing') in words_range.words()):  #单词在words中，库使用复杂，更新接口变更...
+            if ( d.check(lastword) or d.check(lastword.rstrip('s')) or d.check( lastword.rstrip('es')) or d.check(lastword.rstrip('ed')) or d.check(lastword.rstrip('ing')) ) :
                 strBuff =  strBuff.replace('\r\n', ' ',1)    #正常换行
             else :
                 print(lastword)
