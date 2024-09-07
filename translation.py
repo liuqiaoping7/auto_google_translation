@@ -37,6 +37,7 @@ while True:
         strBuff =  strBuff.replace('?', '%3F')
         strBuff =  strBuff.replace('#', '%23')
         strBuff =  strBuff.replace('&', '%26')
+        # print(strBuff)
 
         # chrome
         # url='https://translate.google.co.jp/?hl=zh-CN&tab=wT&sl=auto&tl=zh-CN&text=' + strBuff + '&op=translate'
@@ -45,9 +46,12 @@ while True:
         # webbrowser.get('chrome').open(url)
 
         # edge
-        url='https://cn.bing.com/translator?ref=TThis&text=' + strBuff + '&from=english&to=zh-Hans'
-        webbrowser.register('edge', None,webbrowser.BackgroundBrowser(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"))
-        webbrowser.get('edge').open(url)
+        # url='https://cn.bing.com/translator?ref=TThis&text=' + strBuff + '&from=english&to=zh-Hans'
+        # webbrowser.register('edge', None,webbrowser.BackgroundBrowser(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"))
+        # webbrowser.get('edge').open(url)
 
+        # safari mac register error, just use default
+        url='https://cn.bing.com/translator?ref=TThis&text=' + strBuff + '&from=english&to=zh-Hans'
+        webbrowser.open_new_tab(url)
     else:
         pass
